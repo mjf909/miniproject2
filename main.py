@@ -6,27 +6,36 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from faker import Faker
+import json
 
 
-#Generate Fake Data
-
-fake = Faker();
 
 
-data = {'NAME': [fake.name(), fake.name(), fake.name(), fake.name(), fake.name(), fake.name()],
+data = {
+        'Rebounds': [3, 1, 4, 2, 2, 3],
 
-        'STATE': [fake.state(), fake.state(), fake.state(), fake.state(), fake.state(), fake.state()],
+        'Points': [13, 25, 16, 7, 19, 13],
 
-        'SSN': [fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn()],
+        'Assists': [2, 0, 0, 4, 1, 3],
 
-        'MONTH': [fake.month(), fake.month(), fake.month(), fake.month(), fake.month(), fake.month()],
+        'Blocks': [3, 1, 3, 5, 0, 1],
 
-        }
-
-
-#Plot Data
+        'Fouls': [4, 2, 1, 2, 4, 4],
+}
 
 df = pd.DataFrame(data)
 
 print(df)
+
+
+# Create the NumPy Array
+
+ticker_array = np.array(df)
+
+
+# Create the MatLib graph
+
+plt.plot(ticker_array)
+
+
+plt.show()
