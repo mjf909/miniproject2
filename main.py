@@ -8,37 +8,25 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from faker import Faker
 
+
+#Generate Fake Data
+
 fake = Faker();
 
-# Generate Fake Data
 
-for _ in range(5):
-    print(fake.simple_profile())
+data = {'NAME': [fake.name(), fake.name(), fake.name(), fake.name(), fake.name(), fake.name()],
+
+        'STATE': [fake.state(), fake.state(), fake.state(), fake.state(), fake.state(), fake.state()],
+
+        'SSN': [fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn(), fake.ssn()],
+
+        'MONTH': [fake.month(), fake.month(), fake.month(), fake.month(), fake.month(), fake.month()],
+
+        }
 
 
+#Plot Data
 
-
-
-df = pd.DataFrame(
-
-    {
-
-        "Name": [
-
-            "Braund, Mr. Owen Harris",
-
-            "Allen, Mr. William Henry",
-
-            "Bonnell, Miss. Elizabeth",
-
-        ],
-
-        "Age": [22, 35, 58],
-
-        "Sex": ["male", "male", "female"],
-
-    }
-
-)
+df = pd.DataFrame(data)
 
 print(df)
